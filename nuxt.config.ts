@@ -14,11 +14,4 @@ export default defineNuxtConfig({
   experimental: {
     inlineSSRStyles: false
   },
-  vite: {
-    define: {
-      'process.env': JSON.stringify({
-        ...process.env,
-      })
-    }
-  }
 })
