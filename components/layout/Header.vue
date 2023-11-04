@@ -18,11 +18,8 @@ const settingRef = ref()
       </div>
     </Transition>
     <div
-      class="box-content rounded-full p-0.5 transition-all duration-[20000ms] text-base-default bg-base-default cursor-pointer hover:outline-base-default outline-transparent outline  outline-1 ">
+      class="box-content rounded-full p-0.5 ease-linear  transition-[color] duration-200 text-base-default  cursor-pointer hover:outline-base-default outline-transparent outline  outline-1 ">
       <IconSettings ref="settingRef" :size="20" @click.stop="$emit('handleSettingIcon', settingRef)" />
     </div>
-    <div class="box-content rounded-full p-0.5 transition-all duration-[20000ms] text-base-default ">
-      反反复复</div>
-
   </header>
 </template>

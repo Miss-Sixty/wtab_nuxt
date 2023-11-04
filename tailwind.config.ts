@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 function withOpacityValue(variable: string) {
-  return `rgba(var(${variable}),1)`
+  return `rgb(var(${variable}))`
 }
 // Default are on https://tailwindcss.nuxtjs.org/tailwind/config#default-configuration
 export default <Partial<Config>>{

@@ -1,8 +1,10 @@
-@import 'theme.module';
-
 html,
 body,
 #__nuxt {
   height: 100%;
   overflow: hidden;
+}
+
+#__nuxt {
+  @apply bg-base-light duration-200 transition-[background-color]
 }

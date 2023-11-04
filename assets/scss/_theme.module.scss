@@ -5,30 +5,32 @@
 }
 
 $themeColorList: (
-  'green': #bdddc8,
-  'blue': #a1d8e6,
-  'dark': #000,
-  'light': #fff
+  #2196f3,
+  #f44336,
+  #94c1a4,
+  #7bb3e1,
+  #4caf50,
+  #3f51b5,
 );
 
 :export {
-  @each $name, $color in $themeColorList {
-    #{$name}: $color;
+  @each $color in $themeColorList {
+    #{$color}: $color;
   }
 }
 
-@each $key, $value in $themeColorList {
-  :root[data-theme='#{$key}'] {
+@each $color in $themeColorList {
+  :root[data-theme='#{$color}'] {
     opacity: 1;
 
-    @if $key =='dark' {
+    @if $color =='dark' {
       color-scheme: dark;
     }
 
-    @if $key =='light' {
+    @if $color =='light' {
       color-scheme: light;
     }
 
-    @include spread-theme-map(theme-primary-map($value));
+    @include spread-theme-map(theme-primary-map($color));
   }
 }

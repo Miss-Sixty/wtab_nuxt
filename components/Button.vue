@@ -18,7 +18,7 @@ defineProps({
 
 <template>
   <button
-    class="hover:outline-base-default outline-transparent outline outline-offset-1 outline-1 rounded-full  flex align-middle justify-center bg-base-default text-white duration-[20000ms]"
+    class="hover:outline-base-default outline-transparent outline outline-offset-1 outline-1 rounded-full  flex align-middle justify-center ease-linear bg-base-default text-white transition-[background-color] duration-200"
     :class="sizeType[size]">
     <slot />
   </button>
