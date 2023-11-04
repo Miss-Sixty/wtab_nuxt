@@ -1,0 +1,34 @@
+@import 'variables';
+
+:root {
+  @include spread-theme-map(theme-primary-map());
+}
+
+$themeColorList: (
+  'green': #bdddc8,
+  'blue': #a1d8e6,
+  'dark': #000,
+  'light': #fff
+);
+
+:export {
+  @each $name, $color in $themeColorList {
+    #{$name}: $color;
+  }
+}
+
+@each $key, $value in $themeColorList {
+  :root[data-theme='#{$key}'] {
+    opacity: 1;
+
+    @if $key =='dark' {
+      color-scheme: dark;
+    }
+
+    @if $key =='light' {
+      color-scheme: light;
+    }
+
+    @include spread-theme-map(theme-primary-map($value));
+  }
+}
