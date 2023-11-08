@@ -1,16 +1,12 @@
-<script setup>
-import themeScss from '@/assets/scss/_theme.module.scss'
-const colorMode = useColorMode()
+<script setup lang="ts">
+const addWidgetsVisible = ref(false)
+const contextMenuRef = ref()
+const handleSettingIcon = (ref: Ref) => {
+  contextMenuRef.value.show('settingIcon', ref)
+}
 </script>
 
 <template>
-  <LayoutHeader />
-  <div class="pt-14">
-    <select v-model="colorMode.preference">
-      <option v-for="(item, key) in themeScss" :key="key" :value="key">
-        {{ key }}
-      </option>
-    </select>
-    <NuxtPage class="mx-auto p-4" />
-  </div>
+  <LayoutHeader @handleSettingIcon="handleSettingIcon" />
+  <LayoutContextMenu ref="contextMenuRef" v-model:addWidget="addWidgetsVisible" />
 </template>
