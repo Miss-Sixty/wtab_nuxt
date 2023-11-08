@@ -9,10 +9,12 @@ export default <Partial<Config>>{
     extend: {
       colors: {
         base: {
-          extralight: withOpacityValue('--color-primary-extralight'),
-          light: withOpacityValue('--color-primary-light'),
-          medium: withOpacityValue('--color-primary-medium'),
           default: withOpacityValue('--color-primary'),
+          1: withOpacityValue('--color-primary-1'),
+          2: withOpacityValue('--color-primary-2'),
+          3: withOpacityValue('--color-primary-3'),
+          4: withOpacityValue('--color-primary-4'),
+          5: withOpacityValue('--color-primary-5'),
           dark: withOpacityValue('--color-primary-dark'),
         },
       },

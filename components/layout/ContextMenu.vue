@@ -168,16 +168,15 @@ defineExpose({ show })
     <Transition enter-active-class="animate-zoom-in transition-none transform-gpu"
       leave-active-class="animate-zoom-out transform-gpu">
       <ul
-        class="fixed z-auto min-w-[150px] translate-x-0 translate-y-0 select-none rounded-md bg-base-medium p-2 shadow-sm transition-[left,top]"
+        class="fixed z-auto min-w-[150px] translate-x-0 translate-y-0 select-none rounded-md bg-white p-2 shadow-sm transition-[left,top]"
         :style="styles" v-show="popperVisible" ref="floatingRef">
         <template v-for="(item, i) in showMenu" :key="i">
-          <li class="my-1.5 border-t border-base-light"
+          <li class="my-1.5 border-t border-[#E5E5E5]"
             v-if="typeof item.divided === 'boolean' ? item.divided : item.divided()" />
           <li :class="[
             item.delete ? 'text-danger-default' : '',
-            item.delete ? 'hover:bg-danger-medium' : 'hover:bg-base-light'
-          ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition-[background-color]"
-            @click="handleClick(item)">
+            item.delete ? 'hover:bg-danger-2' : 'hover:bg-base-2 hover:text-white'
+          ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition" @click="handleClick(item)">
             {{ item.text }}
           </li>
         </template>

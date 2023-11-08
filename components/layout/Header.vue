@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { IconSettings, IconPlus } from '@tabler/icons-vue'
-const editMode = ref(true)
-defineEmits(['handleSettingIcon'])
+defineEmits(['handleSettingIcon', 'handleAddWidget'])
+import useLayoutStore from '@/stores/layout'
+const layoutStore = useLayoutStore()
+const { editMode } = storeToRefs(layoutStore)
 const settingRef = ref()
 </script>
 
@@ -18,7 +20,7 @@ const settingRef = ref()
       </div>
     </Transition>
     <div
-      class="box-content rounded-full p-0.5 ease-linear  transition-[color] duration-200 text-base-default  cursor-pointer hover:outline-base-default outline-transparent outline  outline-1 ">
+      class="box-content rounded-full p-0.5 ease-linear transition-[color] duration-200 text-base-default  cursor-pointer hover:outline-base-default outline-transparent outline  outline-1 ">
       <IconSettings ref="settingRef" :size="20" @click.stop="$emit('handleSettingIcon', settingRef)" />
     </div>
   </header>
