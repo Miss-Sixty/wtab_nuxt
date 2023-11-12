@@ -24,12 +24,8 @@ const props = defineProps({
   }
 })
 
-let widthStyle = ref()
-let heightStyle = ref()
-
-onMounted(() => {
-  widthStyle.value = props.colsNum * (props.baseSize + props.baseMargin) - props.baseMargin
-
+const widthStyle = computed(() => props.colsNum * (props.baseSize + props.baseMargin) - props.baseMargin)
+const heightStyle = computed(() => {
   let h = 0
   let y = 0
   props.modelValue.forEach((widget: any) => {
@@ -40,9 +36,8 @@ onMounted(() => {
       y = widgetY
     }
   })
-  heightStyle.value = `${(y + h) * (props.baseSize + props.baseMargin) - props.baseMargin}px`
+  return `${(y + h) * (props.baseSize + props.baseMargin) - props.baseMargin}px`
 })
-
 
 const gridRef = ref<HTMLElement | null>(null)
 // 手势
