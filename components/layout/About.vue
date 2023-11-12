@@ -1,14 +1,7 @@
 <script setup lang="ts">
 import miaoMiao from '/miaomiao.svg'
-import pkg from '/package.json'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import timezone from 'dayjs/plugin/timezone'
-dayjs.extend(utc)
-dayjs.extend(timezone)
-
-const lastBuildTime = dayjs().tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-const { name, version, description } = pkg
+import configs from '@/config/settings'
+const appConfig = useAppConfig()
 
 const links = [
   {
@@ -28,8 +21,8 @@ const links = [
     <div class="relative flex h-full flex-col items-center antialiased">
       <img class="mb-3 mt-14 w-28" :src="miaoMiao" />
 
-      <p class="text-xl font-bold">{{ name }}</p>
-      <p class="mt-3 text-xs text-gray-500">{{ description }}</p>
+      <p class="text-xl font-bold">{{ configs.title }}</p>
+      <p class="mt-3 text-xs text-gray-500">{{ configs.description }}</p>
       <div class="mx-1 mt-4 divide-x divide-current text-sm">
         <a class="px-1.5" v-for="(item, i) in links" :key="i" :href="item.link" target="_blank">
           {{ item.text }}
@@ -37,8 +30,8 @@ const links = [
       </div>
 
       <div class="absolute bottom-0 flex w-full justify-between">
-        <p class="text-xs text-gray-500">最后更新：{{ lastBuildTime }}</p>
-        <p class="text-xs text-gray-500">V{{ version }}</p>
+        <p class="text-xs text-gray-500">最后更新：{{ appConfig.appInfo.lastBuildTime }}</p>
+        <p class="text-xs text-gray-500">V{{ appConfig.appInfo.version }}</p>
       </div>
     </div>
   </Dialog>
