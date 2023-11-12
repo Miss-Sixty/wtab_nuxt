@@ -17,6 +17,10 @@ export default <Partial<Config>>{
           5: withOpacityValue('--color-primary-5'),
           dark: withOpacityValue('--color-primary-dark'),
         },
+        danger: {
+          1: '#f56c6c',
+          2: '#FFEBEB'
+        }
       },
       keyframes: {
         pulseIn: {

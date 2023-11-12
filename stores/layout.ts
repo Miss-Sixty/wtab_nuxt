@@ -203,6 +203,7 @@ export default defineStore('storeLayout', () => {
   })
   const breakpointsData = useBreakpoints(breakpoints.value)
   const current: ComputedRef<string[]> = breakpointsData.current() //当前布局断点
+
   // 一共多少列
   const colsNum: ComputedRef<number> = computed(() => {
     const [firstData] = Object.keys(breakpoints.value)

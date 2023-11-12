@@ -16,4 +16,14 @@ export default defineNuxtConfig({
   experimental: {
     inlineSSRStyles: false
   },
+  components: [
+    { path: '~/widgets', global: true, prefix: 'Widgets' },
+    '~/components'
+  ],
+  vue: {
+    compilerOptions: {
+      // 将所有带短横线的标签名都视为自定义元素
+      isCustomElement: (tag) => tag.includes('swiper-')
+    }
+  }
 })
