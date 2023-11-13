@@ -7,6 +7,7 @@ const { layouts, baseMargin, baseSize, colsNum, editMode } = storeToRefs(layoutS
 
 <template>
   <main class="h-full overflow-y-auto px-1 py-10">
+
     <LayoutGrid v-model="layouts" :colsNum="colsNum" :baseSize="baseSize" :baseMargin="baseMargin" :editMode="editMode">
       <LayoutGridItem v-for="item in layouts" :key="item.id" :id="item.id"
         @widgetContextmenu="$emit('widgetContextmenu', $event)">
