@@ -2,16 +2,11 @@
 import themeScss from '@/assets/scss/_theme.module.scss'
 import { IconDeviceDesktop, IconSunLow, IconMoonStars } from '@tabler/icons-vue'
 const colorMode = useColorMode()
-
-
 const system = ['system', 'light', 'dark']
-
-
-
 </script>
 
 <template>
-  <Dialog title="常规设置">
+  <DialogPage title="常规设置">
     <LayoutCard>
       <div class="flex items-center justify-between">
         <div>外观</div>
@@ -34,5 +29,5 @@ const system = ['system', 'light', 'dark']
         </div>
       </div>
     </LayoutCard>
-  </Dialog>
+  </DialogPage>
 </template>

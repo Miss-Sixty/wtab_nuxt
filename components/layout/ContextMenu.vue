@@ -4,7 +4,8 @@ import { onClickOutside, unrefElement } from '@vueuse/core'
 import useLayoutStore from '@/stores/layout'
 const layoutStore = useLayoutStore()
 const { editMode } = storeToRefs(layoutStore)
-
+const router = useRouter()
+const route = useRoute()
 defineOptions({
   name: 'ContextMenu'
 })
@@ -126,8 +127,12 @@ const contextmenuData = [
   {
     text: '常规设置',
     divided: false,
+    routeName: 'settings',
     visibles: ['settingIcon', 'homeContextmenu', 'widgetContextmenu'],
-    onclick: () => (baseSettingDialogVisible.value = true)
+    onclick: (item: any) => {
+      popperVisible.value = false
+      router.push({ name: item.routeName })
+    }
   },
   {
     text: '删除此小组件',
@@ -176,12 +181,21 @@ defineExpose({ show })
         <template v-for="(item, i) in showMenu" :key="i">
           <li class="my-1.5 border-t border-[#E5E5E5]"
             v-if="typeof item.divided === 'boolean' ? item.divided : item.divided()" />
-          <li :class="[
+
+          <li v-if="item.routeName" :class="[
+            item.delete ? 'text-danger-1' : '',
+            item.delete ? 'hover:bg-danger-2' : 'hover:bg-base-3 hover:text-white'
+          ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition" @click="item.onclick(item)">
+            {{ item.text }}
+          </li>
+
+          <li v-else :class="[
             item.delete ? 'text-danger-1' : '',
             item.delete ? 'hover:bg-danger-2' : 'hover:bg-base-3 hover:text-white'
           ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition" @click="handleClick(item)">
             {{ item.text }}
           </li>
+
         </template>
       </ul>
     </Transition>

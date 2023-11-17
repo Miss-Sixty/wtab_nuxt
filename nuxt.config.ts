@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     '@/assets/scss/index.scss',
   ],
   experimental: {
-    inlineSSRStyles: false
+    inlineSSRStyles: false,
+    viewTransition: true
   },
   components: [
     { path: '~/widgets', global: true, prefix: 'Widgets' },
@@ -23,5 +24,8 @@ export default defineNuxtConfig({
       // 将所有带短横线的标签名都视为自定义元素
       isCustomElement: (tag) => tag.includes('swiper-')
     }
-  }
+  },
+
+  // app: {
+  // },
 })
