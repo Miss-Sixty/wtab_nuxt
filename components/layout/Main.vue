@@ -3,8 +3,6 @@ import useLayoutStore from '@/stores/layout'
 const emit = defineEmits(['widgetContextmenu'])
 const layoutStore = useLayoutStore()
 const { layouts, baseMargin, baseSize, colsNum, editMode } = storeToRefs(layoutStore)
-console.log(11, layouts);
-
 </script>
 
 <template>

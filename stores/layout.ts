@@ -46,8 +46,6 @@ export default defineStore('storeLayout', () => {
   })
 
   const addWidget = (widget: any, component: 'string', size: string) => {
-    console.log(111, widget, component, size);
-
     const position: any = {} // 布局位置
     const [w, h] = size.split(':').map(Number)
 

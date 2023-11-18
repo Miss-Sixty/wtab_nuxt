@@ -63,12 +63,14 @@ provide('gridContextKey', {
 </script>
 
 <template>
-  <div ref="gridRef" class="relative m-auto transition-all" :style="{
-    width: widthStyle + 'px',
-    height: heightStyle
-  }" v-if="widthStyle">
-    <LayoutGridItem class="bg-base-4" :key="placeholderData?.id" :id="placeholderData?.id" :placeholder="placeholderData"
-      v-show="dragging" />
-    <slot />
-  </div>
+  <ClientOnly>
+    <div ref="gridRef" class="relative m-auto transition-all" :style="{
+      width: widthStyle + 'px',
+      height: heightStyle
+    }" v-if="widthStyle">
+      <LayoutGridItem class="bg-base-4" :key="placeholderData?.id" :id="placeholderData?.id"
+        :placeholder="placeholderData" v-show="dragging" />
+      <slot />
+    </div>
+  </ClientOnly>
 </template>
