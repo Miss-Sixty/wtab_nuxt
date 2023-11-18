@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import themeScss from '@/assets/scss/_theme.module.scss'
+import themeScss from '@/assets/scss/theme.module.scss'
 import { IconDeviceDesktop, IconSunLow, IconMoonStars } from '@tabler/icons-vue'
 const colorMode = useColorMode()
 const system = ['system', 'light', 'dark']
