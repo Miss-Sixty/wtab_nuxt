@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import miaoMiao from '/miaomiao.svg'
 import configs from '@/config/settings'
-// const appConfig = useAppConfig()
+const appConfig = useAppConfig()
 
 const links = [
   {
@@ -17,7 +17,7 @@ const links = [
 </script>
 
 <template>
-  <Dialog>
+  <DialogPage>
     <div class="relative flex h-full flex-col items-center antialiased">
       <img class="mb-3 mt-14 w-28" :src="miaoMiao" />
 
@@ -29,10 +29,10 @@ const links = [
         </a>
       </div>
 
-      <!-- <div class="absolute bottom-0 flex w-full justify-between">
+      <div class="absolute bottom-0 flex w-full justify-between">
         <p class="text-xs text-gray-500">最后更新：{{ appConfig.appInfo.lastBuildTime }}</p>
         <p class="text-xs text-gray-500">V{{ appConfig.appInfo.version }}</p>
-      </div> -->
+      </div>
     </div>
-  </Dialog>
+  </DialogPage>
 </template>

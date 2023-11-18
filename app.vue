@@ -2,7 +2,6 @@
 import useLayoutStore from '@/stores/layout'
 const layoutStore = useLayoutStore()
 
-const addWidgetsVisible = ref(false)
 const contextMenuRef = ref()
 const handleSettingIcon = (ref: Ref) => {
   contextMenuRef.value.show('settingIcon', ref)
@@ -27,19 +26,13 @@ onMounted(() => {
     handleHomeContextmenu(evt)
   })
 })
-
-
-
-
 </script>
 
 <template>
   <NuxtPage />
 
-
   <LayoutHeader @handleSettingIcon="handleSettingIcon" />
-  <LayoutContextMenu ref="contextMenuRef" v-model:addWidget="addWidgetsVisible" @del="handleDel" />
+  <LayoutContextMenu ref="contextMenuRef" @del="handleDel" />
   <LayoutMain @widgetContextmenu="handleWidgetContextmenu" />
-  <LayoutAddWidgets v-model="addWidgetsVisible" />
 </template>
 

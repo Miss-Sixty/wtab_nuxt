@@ -121,8 +121,6 @@ const handleClick = (item: any) => {
   item.onclick()
 }
 
-const baseSettingDialogVisible = ref(false)
-const aboutDialogVisible = ref(false)
 const contextmenuData = [
   {
     text: '常规设置',
@@ -144,8 +142,12 @@ const contextmenuData = [
   {
     text: '添加小组件',
     divided: () => ['settingIcon', 'homeContextmenu'].includes(dialogType.value),
+    routeName: 'addWidgets',
     visibles: ['settingIcon', 'homeContextmenu', 'widgetContextmenu'],
-    onclick: () => emit('update:addWidget', true)
+    onclick: (item: any) => {
+      popperVisible.value = false
+      router.push({ name: item.routeName })
+    }
   },
   {
     text: '编辑主页',
@@ -157,7 +159,11 @@ const contextmenuData = [
     text: '关于',
     divided: true,
     visibles: ['settingIcon'],
-    onclick: () => (aboutDialogVisible.value = true)
+    routeName: 'about',
+    onclick: (item: any) => {
+      popperVisible.value = false
+      router.push({ name: item.routeName })
+    }
   }
 ]
 
@@ -166,9 +172,6 @@ const showMenu = computed(() =>
 )
 
 defineExpose({ show })
-
-
-
 </script>
 
 <template>
@@ -200,7 +203,4 @@ defineExpose({ show })
       </ul>
     </Transition>
   </Teleport>
-
-  <LayoutSettings v-model="baseSettingDialogVisible" />
-  <LayoutAbout v-model="aboutDialogVisible" />
 </template>

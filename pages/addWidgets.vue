@@ -13,7 +13,7 @@ const init = async () => {
 init()
 </script>
 <template>
-  <Dialog title="添加小组件" :width="1024">
+  <DialogPage title="添加小组件" :width="1024">
     <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
       <div class="flex h-96 flex-col overflow-hidden rounded-lg bg-base-3" v-for="(list, i) in widgetList" :key="i">
         <swiper-container :loop="true" :pagination="{
@@ -30,7 +30,7 @@ init()
         </div>
       </div>
     </div>
-  </Dialog>
+  </DialogPage>
 </template>
 
 <style scoped lang="scss">
