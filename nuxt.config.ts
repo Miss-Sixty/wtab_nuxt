@@ -25,7 +25,4 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => tag.includes('swiper-')
     }
   },
-
-  // app: {
-  // },
 })

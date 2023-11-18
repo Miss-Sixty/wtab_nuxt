@@ -187,14 +187,14 @@ defineExpose({ show })
 
           <li v-if="item.routeName" :class="[
             item.delete ? 'text-danger-1' : '',
-            item.delete ? 'hover:bg-danger-2' : 'hover:bg-base-3 hover:text-white'
+            item.delete ? 'hover:bg-danger-2' : 'hover:bg-neutral-100'
           ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition" @click="item.onclick(item)">
             {{ item.text }}
           </li>
 
           <li v-else :class="[
             item.delete ? 'text-danger-1' : '',
-            item.delete ? 'hover:bg-danger-2' : 'hover:bg-base-3 hover:text-white'
+            item.delete ? 'hover:bg-danger-2' : 'hover:bg-neutral-100'
           ]" class="cursor-pointer rounded px-2.5 py-1.5 text-sm transition" @click="handleClick(item)">
             {{ item.text }}
           </li>

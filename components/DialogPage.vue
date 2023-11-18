@@ -38,7 +38,7 @@ const closed = () => {
   <div class="fixed left-0 top-0 z-[999] h-full w-full backdrop-blur" @contextmenu.prevent.stop>
     <transition enter-active-class="animate-zoom-in  transform-gpu" leave-active-class="animate-zoom-out transform-gpu">
       <div v-show="modelValue" :style="{ width: `${width}px` }"
-        class="absolute inset-0 m-auto flex h-full w-full max-w-full flex-col overflow-hidden bg-base-2 shadow-lg transition-[background-color] tablet:h-[600px] tablet:max-w-[calc(100vw-40px)] tablet:rounded-lg">
+        class="absolute inset-0 m-auto flex h-full w-full max-w-full flex-col overflow-hidden bg-neutral-100 shadow-lg transition-[background-color] tablet:h-[600px] tablet:max-w-[calc(100vw-40px)] tablet:rounded-lg">
         <div v-if="header" class="relative flex h-12 shrink-0 items-center justify-between pl-5 pr-1.5">
           <span class="text-lg">{{ title }}</span>
           <button @click="closed"
