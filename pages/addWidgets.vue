@@ -2,7 +2,6 @@
 import { register } from 'swiper/element/bundle'
 register()
 import widgetJson from '@/widgets'
-import Widgets from '@/widgets/Index.vue'
 
 const widgetList = shallowRef()
 const init = async () => {
@@ -14,13 +13,14 @@ init()
 </script>
 <template>
   <DialogPage title="添加小组件" :width="1024">
+    {{ widgetList }}
     <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
       <div class="flex h-96 flex-col overflow-hidden rounded-lg bg-base-3" v-for="(list, i) in widgetList" :key="i">
         <swiper-container :loop="true" :pagination="{
           clickable: true
         }" class="w-full flex-1">
-          <swiper-slide v-for="(data, j) in list.widget" :key="j" class="flex items-center justify-center">
-            <Widgets type="add" :widget="data" :component="list.key" />
+          <swiper-slide v-for="(data, size, j) in list.sizes" :key="j" class="flex items-center justify-center">
+            <WidgetsContainer type="add" :size="size" :widget="{ ...list.data, ...data }" :component="list.key" />
           </swiper-slide>
         </swiper-container>
 
@@ -35,6 +35,6 @@ init()
 
 <style scoped lang="scss">
 swiper-container::part(bullet-active) {
-  @apply bg-base-1
+  @apply bg-base-default
 }
 </style>

@@ -45,9 +45,11 @@ export default defineStore('storeLayout', () => {
     return Number(colsNum)
   })
 
-  const addWidget = (widget: any, component: 'string') => {
+  const addWidget = (widget: any, component: 'string', size: string) => {
+    console.log(111, widget, component, size);
+
     const position: any = {} // 布局位置
-    const [w, h] = widget.widgetSize.split(':').map(Number)
+    const [w, h] = size.split(':').map(Number)
 
     for (const colsNum in breakpoints.value) {
       // 首次添加
@@ -60,7 +62,7 @@ export default defineStore('storeLayout', () => {
       position[colsNum] = [x, y]
     }
     const id = component + '-' + nanoid()
-    layouts.value.push({ id, ...widget, position, update: dayjs().valueOf(), component })
+    layouts.value.push({ id, widgetData: widget, widgetSize: size, position, update: dayjs().valueOf(), component })
   }
 
   const delWidget = (widget: any) => {

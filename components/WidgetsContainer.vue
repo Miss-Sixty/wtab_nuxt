@@ -11,6 +11,10 @@ const props: any = defineProps({
     type: Object,
     default: () => ({})
   },
+  size: {
+    type: String,
+    default: '1:1'
+  },
   component: {
     type: String,
     default: ''
@@ -22,8 +26,7 @@ const props: any = defineProps({
 })
 
 const wh = computed(() => {
-  const { widgetSize } = props.widget
-  return widgetSize.split(':')
+  return props.size.split(':')
 })
 
 const widgetWH = computed(() => {
@@ -53,7 +56,7 @@ const iconScale = computed(() => {
 })
 
 const handleClick = () => {
-  props.type === 'add' && layoutStore.addWidget(props.widget, props.component)
+  props.type === 'add' && layoutStore.addWidget(props.widget, props.component, props.size)
   props.type === 'edit' && layoutStore.delWidget(props.widget)
 }
 

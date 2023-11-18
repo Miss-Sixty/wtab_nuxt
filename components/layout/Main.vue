@@ -3,6 +3,8 @@ import useLayoutStore from '@/stores/layout'
 const emit = defineEmits(['widgetContextmenu'])
 const layoutStore = useLayoutStore()
 const { layouts, baseMargin, baseSize, colsNum, editMode } = storeToRefs(layoutStore)
+console.log(11, layouts);
+
 </script>
 
 <template>
@@ -10,7 +12,8 @@ const { layouts, baseMargin, baseSize, colsNum, editMode } = storeToRefs(layoutS
     <LayoutGrid v-model="layouts" :colsNum="colsNum" :baseSize="baseSize" :baseMargin="baseMargin" :editMode="editMode">
       <LayoutGridItem v-for="item in layouts" :key="item.id" :id="item.id"
         @widgetContextmenu="$emit('widgetContextmenu', $event)">
-        <Widgets :type="editMode ? 'del' : ''" :widget="item" :component="item.component" />
+        <WidgetsContainer :type="editMode ? 'del' : ''" :size="item.widgetSize" :widget="item"
+          :component="item.component" />
       </LayoutGridItem>
     </LayoutGrid>
   </main>
