@@ -60,12 +60,24 @@ export default defineStore('storeLayout', () => {
       position[colsNum] = [x, y]
     }
     const id = component + '-' + nanoid()
+    addRoute(component)
     layouts.value.push({ id, widgetData: widget, widgetSize: size, position, update: dayjs().valueOf(), component })
   }
 
   const delWidget = (widget: any) => {
     const index = layouts.value.findIndex((item: any) => item.id === widget.id)
     layouts.value.splice(index, 1)
+  }
+
+  const router = useRouter()
+  const addRoute = async (component: string) => {
+    const componentsFile: any = import.meta.glob('@/widgets/*/dialog/*.vue', { eager: true })
+    for (const path in componentsFile) {
+      const filePath = path.split("/")[2]
+      if (filePath !== component) continue
+      const name = path.split("/").pop()?.replace('.vue', '');
+      router.addRoute({ path: `/${component}/${name}`, component: componentsFile[path].default })
+    }
   }
 
   return {

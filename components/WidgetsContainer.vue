@@ -60,6 +60,7 @@ const handleClick = () => {
   props.type === 'edit' && layoutStore.delWidget(props.widget)
 }
 
+const AsyncComp = defineAsyncComponent(() => import(`~/widgets/${props.component}/index.vue`));
 </script>
 <template>
   <div class="relative select-none" :style="{ ...widgetWH, ...scale }">
@@ -68,7 +69,7 @@ const handleClick = () => {
         class="absolute left-0 top-0 scale-100 text-white cursor-pointer rounded-full bg-base-1 p-1 transition hover:bg-primary-default"
         @click="handleClick" :style="iconScale" />
     </template>
-    <component class="overflow-hidden rounded-lg bg-white" :style="widgetWH" is="WidgetsExternalLink" :type="type"
+    <component class="overflow-hidden rounded-lg bg-white" :style="widgetWH" :is="AsyncComp" :type="type"
       :widget="widget" />
   </div>
 </template>

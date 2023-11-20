@@ -20,6 +20,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@blokwise/dynamic": "2.0.0-6",
     "@floating-ui/dom": "^1.5.3",
     "@pinia/nuxt": "^0.5.1",
     "@tabler/icons-vue": "^2.40.0",

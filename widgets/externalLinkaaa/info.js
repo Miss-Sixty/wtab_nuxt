@@ -1,5 +1,5 @@
 export default {
-  key: "externalLink",
+  key: "externalLinkaaa",
   name: "外链",
   text: "外链添加添加小组件添加小组件小组件添加小组件添加小组件",
   data: {
